@@ -1,0 +1,58 @@
+* hobbit
+  Yet another erlang client for [[https://github.com/aphyr/riemann][riemann]], which is a network event
+  stream processing system.
+  
+** Why another
+   Mainly for fun and learning.
+   There were already [[https://github.com/tel/zeta][zeta]] and [[https://github.com/Aircloak/erlang_riemann][erlang_riemann]]:
+   zeta is a little outdate, erlang_riemann is just a little redundancy.
+   
+** Usage
+   #+begin_src erlang
+     %% send event
+     Event = [
+              {service, "redis"}, 
+              {state, "ok"}, 
+              {metric, 100}, 
+              {tags, ["group1", "ssd"]}],
+     hobbit:send(Event).
+     
+     %% send state, similar to event
+     State = [
+              {service, "redis"},
+              {state, "ok"}],
+     hobbit:send_state(State).
+     
+     %% query
+     hobbit:query('service ~= \"redis\"').
+   #+end_src
+   
+** Installation
+   Include the *hobbit* applicaiton in your *rebar.config* file. Then add riemann
+   as a dependent application to your *project.app*.
+
+   Riemann will default to sending the metrics to localhost on port 5555.
+   You can set the remote riemann host in your config:
+   #+begin_src erlang
+     [
+      ...
+        {hobbit, [
+                  {host, "riemann.host"},
+                  {port, 5555}]}
+     ]
+   #+end_src
+
+** Test
+   cd into the root directory:
+   #+begin_src shell
+   make unit
+   #+end_src
+   
+** Local debug
+   1. start riemann service:
+      sudo service riemann start
+   2. cd into the root dir of hobbit:
+      make dev
+   3. start the [[https://github.com/basho/lager][lager]][logging] and hobbit process:
+      application:start(lager).
+      application:start(hobbit).

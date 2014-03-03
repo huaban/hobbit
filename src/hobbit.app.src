@@ -1,0 +1,13 @@
+{application, hobbit,
+ [
+  {description, "Another erlang client for riemann"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  lager
+                 ]},
+  {mod, { hobbit_app, []}},
+  {env, []}
+ ]}.
