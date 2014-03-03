@@ -45,7 +45,7 @@
 ** Test
    cd into the root directory:
    #+begin_src shell
-   make unit
+   make eunit
    #+end_src
    
 ** Local debug
