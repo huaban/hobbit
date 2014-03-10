@@ -1,0 +1,22 @@
+%% app generated at {2014,3,10} {17,49,49}
+{application,gs,
+             [{description,"GS  The Graphics System"},
+              {vsn,"1.5.15.2"},
+              {id,[]},
+              {modules,[gs,gs_frontend,gs_make,gs_packer,gs_widgets,gse,gstk,
+                        gstk_arc,gstk_button,gstk_canvas,gstk_checkbutton,
+                        gstk_db,gstk_editor,gstk_entry,gstk_font,gstk_frame,
+                        gstk_generic,gstk_grid,gstk_gridline,gstk_gs,
+                        gstk_image,gstk_label,gstk_line,gstk_listbox,
+                        gstk_menu,gstk_menubar,gstk_menubutton,gstk_menuitem,
+                        gstk_oval,gstk_polygon,gstk_port_handler,
+                        gstk_radiobutton,gstk_rectangle,gstk_scale,gstk_text,
+                        gstk_widgets,gstk_window,tcl2erl,tool_file_dialog,
+                        tool_utils]},
+              {registered,[gs_frontend]},
+              {applications,[kernel,stdlib]},
+              {included_applications,[]},
+              {env,[]},
+              {maxT,infinity},
+              {maxP,infinity}]}.
+
